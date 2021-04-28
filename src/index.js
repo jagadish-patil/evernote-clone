@@ -8,7 +8,7 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/firestore';
 
-var firebaseConfig = {
+firebase.initializeApp({
   apiKey: "AIzaSyBStyT6tCQ_PXb9Rvl7RPuiwOR7zCJUF68",
   authDomain: "evernote-clone-28fef.firebaseapp.com",
   projectId: "evernote-clone-28fef",
@@ -16,9 +16,7 @@ var firebaseConfig = {
   messagingSenderId: "1096022932178",
   appId: "1:1096022932178:web:2a10e15236dce46b880b0b",
   measurementId: "G-325ZPTJ5YW"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+});
 
 ReactDOM.render(
   <React.StrictMode>
