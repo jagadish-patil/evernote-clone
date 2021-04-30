@@ -32,7 +32,7 @@ class SidebarComponent extends React.Component {
                             onKeyUp={(e) => this.updateTitle(e.target.value)}>
                             </input>
                             <Button 
-                                className={classes.newNOteSubmitBtn}
+                                className={classes.newNoteSubmitBtn}
                                 onClick={this.newNote}>Submit Note</Button>
                         </div> :
                         null
@@ -42,13 +42,13 @@ class SidebarComponent extends React.Component {
                             notes.map((_note, _index) => {
                                 return(
                                     <div key={_index}>
-                                        <SidebarComponent
+                                        <SidebarItemComponent
                                             _note={_note}
                                             _index={_index}
                                             selectedNoteIndex={selectedNoteIndex}
                                             selectNote={this.selectNote}
                                             deleteNote={this.deleteNote}>
-                                        </SidebarComponent>
+                                        </SidebarItemComponent>
                                         <Divider></Divider>
                                     </div>
                                 )
@@ -68,10 +68,11 @@ class SidebarComponent extends React.Component {
         this.setState({ title: txt });
     }
     newNote = () => {
-        console.log(this.state);
+        this.props.newNote(this.state.title);
+        this.setState({ title:null, addingNote: false });
     }
     selectNote = (n ,i) => this.props.selectNote(n, i);
-    deleteNote = () => console.log('delete note');
+    deleteNote = (note) => this.props.deleteNote(note);
 
 }
 
